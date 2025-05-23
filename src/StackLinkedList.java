@@ -9,7 +9,15 @@ public class StackLinkedList implements Stack{
         top.setNext(previousTop);
     }
     @Override
-    public Object pop() {
+    public Object pop() throws MyEmptyStackException {
+
+
+        if( top == null) {
+
+            throw new MyEmptyStackException("Stack is empyty");
+
+        }
+
         Object tempData = top.getData();
         top = top.getNext();
         return tempData;
@@ -20,6 +28,9 @@ public class StackLinkedList implements Stack{
         System.out.println("The top is "
         + this.top.getData());
     }
+
+
+
     @Override
     public boolean isEmpty() {
         return this.top == null;
